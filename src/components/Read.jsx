@@ -16,7 +16,7 @@ const Read = (props) => {
       <ol className="">
         {props.todo.map((todo) => (
           <li
-            className={`hover:scale-101 transition duration-150 ease-in-out  w-xl rounded-md text-4xl flex justify-between px-5 py-2 mb-2 ${todo.isCompleted ? "bg-gray-400" : "bg-[#836FFF]"}`}
+            className={`hover:scale-101 hover:shadow-lg transition duration-150 ease-in-out  w-xl rounded-md text-4xl flex justify-between px-5 py-2 mb-2 ${todo.isCompleted ? "bg-gray-400" : "bg-[#836FFF]"}`}
             key={todo.id}
           >
             <div
