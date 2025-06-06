@@ -1,6 +1,11 @@
 import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
-const Create = (props) => {
+import { useContext } from "react";
+import { todoContext } from "../Wrapper";
+
+const Create = () => {
+  const [todo, settodo] = useContext(todoContext);
+
   const {
     register,
     handleSubmit,
@@ -11,7 +16,7 @@ const Create = (props) => {
   function submitHandler(data) {
     data.isCompleted = false;
     data.id = nanoid();
-    props.settodo([...props.todo, data]);
+    settodo([...todo, data]);
 
     reset();
   }
@@ -35,7 +40,9 @@ const Create = (props) => {
             placeholder="title..."
           />
           {errors?.title?.message && (
-            <small className="text-red-300 mt-2 text-xl">{errors.title.message}</small>
+            <small className="text-red-300 mt-2 text-xl">
+              {errors.title.message}
+            </small>
           )}
         </div>
 
